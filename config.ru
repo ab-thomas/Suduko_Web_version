@@ -1,3 +1,3 @@
-require './suduko'
+require './sudoku'
 
 run Sinatra::Application

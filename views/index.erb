@@ -1,13 +1,14 @@
-"Hello, suduko"
+"Hello, sudoko"
 
 	<html>
 	<head>
-		<title>Suduko Game</title>
+		<title>Sudoko Game</title>
 		<!-- link to the CSS stylesheet-->
 		<link href="/stylesheets/application.css" rel="stylesheet" type
 	="text/css">
 	</head>
 	<body>
+		<h1>Life is too short for playing Sudoku</h1>
 	<div id="suduko">
 		<!-- one div for each row -->
 		<% 3.times do |row| %>
@@ -22,7 +23,7 @@
 					<% 3.times do |cell| %>
                   <div class="cell">
                     <!-- every cell will have an input field -->
-                    <input type="text">
+                    <input type="text" maxlength="1" autocomplete="off">
                   </div>
                 <% end %>
               </div>
