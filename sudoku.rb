@@ -1,3 +1,7 @@
+configure :production do
+  require 'newrelic_rpm'
+end
+
 require 'sinatra' # load sinatra
 require 'sinatra/partial' 
 require 'rack-flash'
