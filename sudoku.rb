@@ -1,11 +1,12 @@
 require 'sinatra' # load sinatra
+require 'sinatra/partial' 
+
 require_relative './lib/sudoku'
 require_relative './lib/cell'
 
-# require 'sinatra/partial' 
-# set :partial_template_engine, :erb
-
 enable :sessions
+set :partial_template_engine, :erb
+
 
 def random_sudoku
     seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
