@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     rack (1.5.2)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.2)
       rack
     shotgun (0.9)
@@ -18,6 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack-flash3
   shotgun
   sinatra
   sinatra-partial
