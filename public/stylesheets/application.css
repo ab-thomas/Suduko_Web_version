@@ -22,7 +22,7 @@ body {
 }
 
 .incorrect {
-  background-color: yellow;
+  background-color: red;
 }
 
 .value-provided {
