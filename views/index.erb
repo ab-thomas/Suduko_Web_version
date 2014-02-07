@@ -10,15 +10,14 @@
 	<body>
 		<h1>Life is too short for playing Sudoku</h1>
 		<div id="flash">
-  <%= flash[:notice] %>
-</div>
-
+  		<%= flash[:notice] %>
+	</div>
 	<div id="suduko">
 		<form action="/" method="post">
 			<!-- all boxes, rows and cells -->
 		<!-- one div for each row -->
 		<% 3.times do |row| %>
-			<div class='row'>
+		<div class='row'>
 					<!-- we want to create a seperate div elements for boxes to
 	style them using CSS -->
 			<% 3.times do |box| %>
@@ -27,7 +26,7 @@
 			<% 3.times do |cell_row| %>
 					<div class="cell-row">
 					<% 3.times do |cell| %>
-       
+					<div class="cell">
                   	<%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
                   </div>
                 <% end %>

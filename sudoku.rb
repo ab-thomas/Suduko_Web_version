@@ -9,6 +9,8 @@ enable :sessions
 set :partial_template_engine, :erb
 use Rack::Flash
 
+set :session_secret, "I'm the secret key to sign the cookie"
+
 
 def random_sudoku
     seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
