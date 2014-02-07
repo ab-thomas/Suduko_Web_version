@@ -1,13 +1,16 @@
-configure :production do
-  require 'newrelic_rpm'
-end
 
 require 'sinatra' # load sinatra
 require 'sinatra/partial' 
 require 'rack-flash'
 
+configure :production do 
+  require 'newrelic_rpm'
+end
+
+
 require_relative './lib/sudoku'
 require_relative './lib/cell'
+
 
 enable :sessions
 set :partial_template_engine, :erb
