@@ -19,13 +19,15 @@ div.box, div.cell {
 body { 
 	text-align: center;
 	font-family: Arial;
+	background : #F700FF;
 }
 
 .incorrect {
-  background-color: red;
+  background-color: yellow;
 }
 
 .value-provided {
-  background-color: #DDD;
+  background-color: salmon;
 }
+
 
