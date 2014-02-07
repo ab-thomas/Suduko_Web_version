@@ -1,0 +1,6 @@
+<% colour_class = colour_class(@check_solution, @puzzle[cell_index], @current_solution[cell_index], @solution[cell_index])  %>
+<div class="cell">
+<!-- every cell will have an input field -->
+<% cell_value = cell_value(@current_solution[cell_index]) %>                      
+<input name="cell[]" type="text" maxlength="1" autocomplete="off" value="<%= cell_value %>" class="<%= colour_class %>">
+</div>
