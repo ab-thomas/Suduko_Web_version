@@ -1,5 +1,5 @@
 
-require 'sinatra' # load sinatra
+require 'sinatra' 
 require 'sinatra/partial' 
 require 'rack-flash'
 
@@ -28,9 +28,7 @@ end
 
 # this method removes some digits from the solution to create a puzzle
 def puzzle(sudoku)
-    random = [*0..81].sample(20)
-    random.each {|i| sudoku[i] = " "}
-    sudoku
+  sudoku.map {|x| rand < 0.75 ? 0 : x } 
 end
 
 get '/' do
@@ -67,22 +65,18 @@ get '/solution' do
 end
 
   post '/' do 
-    # the cells in HTML are ordered box by box
-    # (first box1, then box2, etc),
-    # so the form data (params['cells']) is sent using this order
-    # However, our code expect it to be row by row,
-    # so we need to transform it.
-    cells = params["cell"]
+
+    cells = box_order_to_row_order(params["cell"])
     session[:current_solution] = cells.map{|value|value.to_i}.join
     session[:check_solution] = true
     redirect to ("/")
   end
 
-  def box_order_to_row_order(cell)
+  def box_order_to_row_order(cells)
     # first, we break down 81 cells into 9 arrays of 9 cells,
     # each representing one box
       boxes = cells.each_slice(9).to_a
-      (0..8).to_a.inject([]) {|memo, i|}
+      (0..8).to_a.inject([]) do |memo, i| 
       first_box_index = i / 3 * 3
       three_boxes = boxes[first_box_index, 3]
       three_rows_of_three = three_boxes.map do |box| 
@@ -92,6 +86,7 @@ end
     end
       memo += three_rows_of_three.flatten
     end
+  end
 
   helpers do
     def colour_class(solution_to_check, puzzle_value, current_solution_value, solution_value)
